@@ -449,27 +449,26 @@ h1 {
   background-color: #0056b3;
 }
 
-/* Navbar layout */
+
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 15px 20px;
-  background-color: #f8f9fa; /* Light gray */
+  background-color: #f8f9fa;
   position: relative;
   z-index: 100;
 }
 
-/* Logo or heading */
 .logo {
   margin: 0;
   font-size: 24px;
   font-weight: bold;
-  color: #333; /* Make sure it's visible */
+  color: #333;
 }
 
-/* Nav links */
+
 .nav-links {
   display: flex;
   list-style: none;
@@ -480,11 +479,11 @@ h1 {
 
 .nav-links li a {
   text-decoration: none;
-  color: #333; /* Text color */
+  color: #333;
   font-weight: bold;
 }
 
-/* Search bar container */
+
 .search-bar {
   position: relative;
   margin-top: 10px;
@@ -497,17 +496,17 @@ h1 {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
-  color: #333; /* Input text color */
+  color: #333; 
   background-color: #fff;
 }
 
-/* Search dropdown */
+
 .search-results {
   position: absolute;
   top: 38px;
   left: 0;
   width: 100%;
-  background-color: #fff; /* Ensure dropdown has background */
+  background-color: #fff;
   border: 1px solid #ccc;
   border-top: none;
   max-height: 250px;
@@ -526,8 +525,8 @@ h1 {
   padding: 10px;
   border-bottom: 1px solid #eee;
   cursor: default;
-  background-color: #fff; /* Prevent see-through */
-  color: #333; /* Make text visible */
+  background-color: #fff; 
+  color: #333; 
 }
 
 .search-results li:hover {
@@ -538,7 +537,7 @@ h1 {
   flex-grow: 1;
 }
 
-/* Add button */
+
 .add-btn {
   padding: 5px 10px;
   background-color: #007bff;
@@ -567,14 +566,14 @@ h1 {
 }
 
 
-/* Overall Navbar layout */
+
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 15px 30px;
-  background: linear-gradient(to right, #007bff, #00bcd4); /* Attractive gradient */
+  background: linear-gradient(to right, #007bff, #00bcd4);
   color: white;
   position: sticky;
   top: 0;
@@ -582,7 +581,7 @@ h1 {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Logo */
+
 .logo {
   font-size: 24px;
   font-weight: bold;
@@ -590,7 +589,7 @@ h1 {
   margin: 0;
 }
 
-/* Navigation links */
+
 .nav-links {
   display: flex;
   gap: 25px;
@@ -611,7 +610,7 @@ h1 {
   color: #f8e112;
 }
 
-/* Search bar styling */
+
 .search-bar {
   position: relative;
   margin-left: 20px;
@@ -628,7 +627,7 @@ h1 {
   color: #333;
 }
 
-/* Dropdown search results */
+
 .search-results {
   position: absolute;
   top: 38px;
@@ -660,7 +659,7 @@ h1 {
   background-color: #f1f1f1;
 }
 
-/* Link to book detail */
+
 .book-link {
   color: #007bff;
   text-decoration: none;
@@ -672,7 +671,7 @@ h1 {
   text-decoration: underline;
 }
 
-/* Add button */
+
 .add-btn {
   padding: 5px 10px;
   background-color: #28a745;
@@ -687,7 +686,7 @@ h1 {
   background-color: #218838;
 }
 
-/* Responsive spacing */
+
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -710,7 +709,7 @@ h1 {
   text-decoration: none;
   color: #fff;
   font-size: 18px;
-  font-weight: 600; /* increased from 500 to 600 */
+  font-weight: 600; 
   transition: color 0.3s ease;
 }
 
