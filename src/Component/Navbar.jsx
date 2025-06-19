@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-
-const Navbar = ({ cartItemCount, books, addToCart }) => {
+const Navbar = ({ cartItemCount, books, sortOption, setSortOption }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const navigate = useNavigate();
 
   const handleSearch = (e) => {
     const term = e.target.value;
@@ -18,14 +18,17 @@ const Navbar = ({ cartItemCount, books, addToCart }) => {
     const results = books.filter((book) =>
       book.title.toLowerCase().includes(term.toLowerCase())
     );
-    setSearchResults(results);
+    setSearchResults(results.slice(0, 5)); // limit to top 5 results
   };
 
-  const handleAddToCart = (book) => {
-    addToCart(book);
-    alert(`✅ "${book.title}" added to cart`);
+  const handleSelectBook = (bookId) => {
     setSearchTerm("");
     setSearchResults([]);
+    navigate(`/book/${bookId}`);
+  };
+
+  const handleSortChange = (e) => {
+    setSortOption(e.target.value);
   };
 
   return (
@@ -37,34 +40,40 @@ const Navbar = ({ cartItemCount, books, addToCart }) => {
         <li><Link to="/cart">Cart ({cartItemCount})</Link></li>
       </ul>
 
-      <div className="search-bar">
+      <div className="search-filter">
         <input
           type="text"
           placeholder="Search books..."
           value={searchTerm}
           onChange={handleSearch}
         />
-        {searchResults.length > 0 && (
-          <ul className="search-results">
-            {searchResults.map((book) => (
-              <li key={book.id}>
-                <Link
-                  to={`/book/${book.id}`}
-                  className="book-link"
-                  onClick={() => {
-                    setSearchTerm("");
-                    setSearchResults([]);
-                  }}
-                >
-                  {book.title}
-                </Link>
-                <button className="add-btn" onClick={() => handleAddToCart(book)}>
-                  Add
-                </button>
-              </li>
-            ))}
-          </ul>
-        )}
+   {searchResults.length > 0 && (
+  <ul className="search-dropdown">
+    {searchResults.map((book) => (
+      <li key={book.id} className="search-item">
+        <Link
+          to={`/book/${book.id}`}
+          onClick={() => {
+            setSearchTerm("");
+            setSearchResults([]);
+          }}
+        >
+          {book.title}
+        </Link>
+      </li>
+    ))}
+  </ul>
+)}
+
+
+
+        <select value={sortOption} onChange={handleSortChange}>
+          <option value="">Default</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="rating-high">Rating: High to Low</option>
+          <option value="rating-low">Rating: Low to High</option>
+        </select>
       </div>
     </nav>
   );

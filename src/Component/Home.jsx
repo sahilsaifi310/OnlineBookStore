@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Home = ({ books, addToCart }) => {
-  console.log(books)
+const Home = ({ books}) => {
+  // console.log(books)
   return (
     <div className="home-container">
       <h1>Welcome to the Online Bookstore</h1>

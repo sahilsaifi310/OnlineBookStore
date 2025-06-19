@@ -1,6 +1,7 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Cart = ({ cart, removeFromCart, incrementQuantity, decrementQuantity, setCart }) => {
   const [paymentMethod, setPaymentMethod] = useState("credit");
@@ -9,14 +10,32 @@ const Cart = ({ cart, removeFromCart, incrementQuantity, decrementQuantity, setC
   const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
   const handleOrder = () => {
-    alert(`Order placed successfully!\nPayment Method: ${paymentMethod}\nTotal: ₹${totalPrice}`);
+    toast.success(
+      `Order placed successfully!\nPayment Method: ${paymentMethod}\nTotal: ₹${totalPrice}`,
+      {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      }
+    );
+
     setCart([]);
-    navigate("/");
+
+   
+    setTimeout(() => {
+      navigate("/");
+    }, 2000); 
   };
 
   return (
     <div className="cart-container">
+      <ToastContainer />
+
       <h1>Shopping Cart</h1>
+
       {cart.length === 0 ? (
         <p>Your cart is empty</p>
       ) : (
